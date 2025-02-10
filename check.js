@@ -61,6 +61,7 @@ nextBtn.addEventListener("click", () => {
   checkboxes1.forEach((item) => {
     if (item.checked) {
       let check = item.parentElement;
+      console.log(check);
       check.remove();
       ul2.appendChild(check);
       item.checked = false;
