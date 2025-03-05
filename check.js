@@ -20,7 +20,7 @@ let pokemonData = () => {
     });
 };
 poke.addEventListener("click", pokemonData);
-// select all checkbox
+//select all checkbox
 selectAll.addEventListener("click", () => {
   checkboxes1.forEach((checkbox) => {
     checkbox.checked = selectAll.checked;
@@ -56,12 +56,36 @@ checkboxes1.forEach((checkbox) => {
     nextBtn.disabled = !anyChecked;
   });
 });
+// checkboxes2.forEach((checkbox) => {
+//   checkbox.addEventListener("click", () => {
+//     let allcheck = true;
+//     for (let checkbox of checkboxes2) {
+//       if (!checkbox.checked) {
+//         console.log(checkbox.checked);
+//         allcheck = false;
+//         break;
+//       }
+//     }
+//     selectAll.checked = false;
+//     selectAll2.checked = allcheck;
+
+//     let anyChecked = false;
+//     for (let checkbox of checkboxes2) {
+//       if (checkbox.checked) {
+//         anyChecked = true;
+//         break;
+//       }
+//     }
+//     backBtn.disabled = !anyChecked;
+//   });
+// });
 
 nextBtn.addEventListener("click", () => {
   checkboxes1.forEach((item) => {
+    console.log(item);
     if (item.checked) {
       let check = item.parentElement;
-      console.log(check);
+      // console.log(check);
       check.remove();
       ul2.appendChild(check);
       item.checked = false;
@@ -73,8 +97,10 @@ nextBtn.addEventListener("click", () => {
 });
 backBtn.addEventListener("click", () => {
   checkboxes2.forEach((item) => {
+    console.log();
     if (item.checked) {
       let check = item.parentElement;
+      console.log(check);
       check.remove();
       ul1.appendChild(check);
       item.checked = false;
@@ -84,6 +110,7 @@ backBtn.addEventListener("click", () => {
   selectAll2.checked = false;
   updateCheckboxListeners();
 });
+
 function updateCheckboxListeners() {
   checkboxes1 = document.querySelectorAll("#ul-1 input[type=checkbox]");
 
@@ -109,6 +136,7 @@ function updateCheckboxListeners() {
       nextBtn.disabled = !anyChecked;
     });
   });
+
   checkboxes2 = document.querySelectorAll("#ul-2 input[type=checkbox]");
   checkboxes2.forEach((checkbox) => {
     checkbox.addEventListener("click", () => {
