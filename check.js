@@ -26,6 +26,17 @@ selectAll.addEventListener("click", () => {
     checkbox.checked = selectAll.checked;
     nextBtn.disabled = !selectAll.checked;
   });
+  // if (selectAll.checked) {
+  //   checkboxes1.forEach((checkbox) => {
+  //     checkbox.checked = true;  // If "Select All" is checked, check all individual checkboxes
+  //   });
+  //   nextBtn.disabled = false;   // Enable the "Next" button because at least one checkbox is checked
+  // } else {
+  //   checkboxes1.forEach((checkbox) => {
+  //     checkbox.checked = false; // If "Select All" is unchecked, uncheck all individual checkboxes
+  //   });
+  //   nextBtn.disabled = true;    // Disable the "Next" button because no checkboxes are checked
+  // }
 });
 selectAll2.addEventListener("click", () => {
   checkboxes2.forEach((checkbox) => {
@@ -36,19 +47,19 @@ selectAll2.addEventListener("click", () => {
 
 checkboxes1.forEach((checkbox) => {
   checkbox.addEventListener("click", () => {
-    let allChecked = true;
-    for (let checkbox of checkboxes1) {
-      if (!checkbox.checked) {
-        allChecked = false;
-        break;
-      }
-    }
-    selectAll2.checked = false;
-    selectAll.checked = allChecked;
+    // let allChecked = true;
+    // for (let checkbox of checkboxes1) {
+    //   if (!checkbox.checked) {
+    //     allChecked = false;
+    //     break;
+    //   }
+    // }
+    // selectAll2.checked = false;
+    // selectAll.checked = allChecked;
 
     let anyChecked = false;
     for (let checkbox of checkboxes1) {
-      if (checkbox.checked) {
+      if (!checkbox.checked) {
         anyChecked = true;
         break;
       }
@@ -85,7 +96,6 @@ nextBtn.addEventListener("click", () => {
     console.log(item);
     if (item.checked) {
       let check = item.parentElement;
-      // console.log(check);
       check.remove();
       ul2.appendChild(check);
       item.checked = false;
@@ -113,22 +123,21 @@ backBtn.addEventListener("click", () => {
 
 function updateCheckboxListeners() {
   checkboxes1 = document.querySelectorAll("#ul-1 input[type=checkbox]");
-
   checkboxes1.forEach((checkbox) => {
     checkbox.addEventListener("click", () => {
-      let allChecked = true;
-      for (let checkbox of checkboxes1) {
-        if (!checkbox.checked) {
-          allChecked = false;
-          break;
-        }
-      }
-      selectAll2.checked = false;
-      selectAll.checked = allChecked;
+      // let allChecked = true;
+      // for (let checkbox of checkboxes1) {
+      //   if (!checkbox.checked) {
+      //     allChecked = false;
+      //     break;
+      //   }
+      // }
+      // selectAll2.checked = false;
+      // selectAll.checked = allChecked;
 
       let anyChecked = false;
       for (let checkbox of checkboxes1) {
-        if (checkbox.checked) {
+        if (!checkbox.checked) {
           anyChecked = true;
           break;
         }
@@ -140,20 +149,19 @@ function updateCheckboxListeners() {
   checkboxes2 = document.querySelectorAll("#ul-2 input[type=checkbox]");
   checkboxes2.forEach((checkbox) => {
     checkbox.addEventListener("click", () => {
-      let allcheck = true;
-      for (let checkbox of checkboxes2) {
-        if (!checkbox.checked) {
-          console.log(checkbox.checked);
-          allcheck = false;
-          break;
-        }
-      }
-      selectAll.checked = false;
-      selectAll2.checked = allcheck;
+      // let allChecked = true;
+      // for (let checkbox of checkboxes1) {
+      //   if (!checkbox.checked) {
+      //     allChecked = false;
+      //     break;
+      //   }
+      // }
+      // selectAll2.checked = false;
+      // selectAll.checked = allChecked;
 
       let anyChecked = false;
       for (let checkbox of checkboxes2) {
-        if (checkbox.checked) {
+        if (!checkbox.checked) {
           anyChecked = true;
           break;
         }
